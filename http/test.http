@@ -1,0 +1,81 @@
+### Successful test: check response status is 200
+GET {{url}}/auth/test
+
+> {%
+    client.test("Request executed successfully", function() {
+        client.assert(response.status === 200, "Response status is not 200");
+    });
+%}
+
+### Check response status and content-type
+GET {{url}}/auth/test
+
+> {%
+    client.test("Request executed successfully", function() {
+        client.assert(response.status === 200, "Response status is not 200");
+    });
+
+    client.test("Response content-type is json", function() {
+        var type = response.contentType.mimeType;
+        client.assert(type === "application/json", "Expected 'application/json' but received '" + type + "'");
+    });
+%}
+
+### Create a new user/user
+POST {{url}}/auth/register
+Content-Type: application/json
+
+{
+    "username": "user",
+    "password": "user",
+    "role": "user"
+}
+
+### Create a new user/admin
+POST {{url}}/auth/register
+Content-Type: application/json
+
+{
+  "username": "admin",
+  "password": "admin",
+  "role": "admin"
+}
+
+
+### Check response body
+POST {{url}}/auth/login
+Content-Type: application/json
+
+{
+  "username": "user",
+  "password": "user"
+}
+
+> {%
+    client.test("Body property exists", function() {
+        client.assert(response.body.hasOwnProperty("username"), "Cannot find 'body' property response");
+    });
+
+    client.test("Value of body property username", function() {
+        client.assert(response.body.username === "user", "Expected 'user' but received '" + response.body.username + "'");
+    });
+%}
+
+### Check response body
+POST {{url}}/auth/login
+Content-Type: application/json
+
+{
+  "username": "admin",
+  "password": "admin"
+}
+
+> {%
+    client.test("Body property exists", function() {
+        client.assert(response.body.hasOwnProperty("username"), "Cannot find 'body' property response");
+    });
+
+    client.test("Value of body property username", function() {
+        client.assert(response.body.username === "admin", "Expected 'user' but received '" + response.body.username + "'");
+    });
+%}

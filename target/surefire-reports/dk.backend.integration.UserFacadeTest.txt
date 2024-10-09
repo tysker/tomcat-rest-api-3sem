@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: dk.backend.integration.UserFacadeTest
+-------------------------------------------------------------------------------
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 16.98 s - in dk.backend.integration.UserFacadeTest

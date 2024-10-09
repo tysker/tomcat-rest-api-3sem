@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: dk.startcode.rest.server.ServerTest
+-------------------------------------------------------------------------------
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.041 s - in dk.startcode.rest.server.ServerTest

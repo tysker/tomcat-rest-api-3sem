@@ -1,0 +1,6 @@
+dk/backend/utility/LoginToken.class
+dk/backend/utility/CreateTestData.class
+dk/backend/integration/UserFacadeTest.class
+dk/backend/rest/server/ServerTest.class
+dk/backend/rest/authentication/AuthenticationResourceTest.class
+dk/backend/utility/RestServer.class
